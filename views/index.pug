@@ -11,6 +11,7 @@ html
     script(src="/static/systemjs.config.js")
     script
       | System.import('app').catch(function(err){ console.error(err); });
+    base(href="/")
   body
     my-app
         Loading AppComponent content here ...

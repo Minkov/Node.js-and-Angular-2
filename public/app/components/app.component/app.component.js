@@ -8,27 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var superheroes_service_1 = require('./services/superheroes.service');
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
-    function AppComponent(superheroesData) {
-        this.superheroesData = superheroesData;
-        this.superheroes = [];
+    function AppComponent() {
     }
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.superheroesData.getAll()
-            .then(function (superheroes) {
-            _this.superheroes = superheroes;
-        });
-    };
     AppComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-app',
-            template: "\n  <ul>\n    <li *ngFor=\"let superhero of superheroes\">\n      {{superhero.name}}\n    </li>\n  </ul>",
-            providers: [superheroes_service_1.SuperheroesService]
+            template: "\n  <h1>The Superheroes Universe!</h1>\n  <nav>\n    <a routerLink=\"/superheroes-list\" routerLinkActive=\"active\">Superheroes</a>\n    <a routerLink=\"/factions-list\" routerLinkActive=\"active\">Factions</a>\n  </nav>\n  <router-outlet>\n  </router-outlet>\n  "
         }), 
-        __metadata('design:paramtypes', [superheroes_service_1.SuperheroesService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());

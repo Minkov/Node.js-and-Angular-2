@@ -16,9 +16,23 @@ let superheroes = [
     { name: 'Dr. Strange', secretIdentity: 'Dr. Stephen Strange', powers: ['Magic', 'Martial arts'] }
 ];
 
-app.get('/superheroes', (req, res) => {
+let factions = [
+    { name: 'Avengers' },
+    { name: 'Justice League' },
+    { name: 'The Bat Family' },
+    { name: 'Fantastic Four' },
+    { name: 'Guardians of the Galaxy' }
+];
+
+app.get('/api/superheroes', (req, res) => {
     res.send({
         result: superheroes
+    });
+});
+
+app.get('/api/factions', (req, res) => {
+    res.send({
+        result: factions
     });
 });
 

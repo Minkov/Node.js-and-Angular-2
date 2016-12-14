@@ -11,9 +11,21 @@ var superheroes = [
     { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: ['Utility belt', 'Martial arts', 'Intelligence'] },
     { name: 'Dr. Strange', secretIdentity: 'Dr. Stephen Strange', powers: ['Magic', 'Martial arts'] }
 ];
-app.get('/superheroes', function (req, res) {
+var factions = [
+    { name: 'Avengers' },
+    { name: 'Justice League' },
+    { name: 'The Bat Family' },
+    { name: 'Fantastic Four' },
+    { name: 'Guardians of the Galaxy' }
+];
+app.get('/api/superheroes', function (req, res) {
     res.send({
         result: superheroes
+    });
+});
+app.get('/api/factions', function (req, res) {
+    res.send({
+        result: factions
     });
 });
 app.listen(3000, function () { return console.log('App listening on :3000'); });
