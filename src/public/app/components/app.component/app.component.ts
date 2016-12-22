@@ -6,8 +6,8 @@ import { Component} from '@angular/core';
   template: `
   <h1>The Superheroes Universe</h1>
   <nav>
-    <a routerLink="/superheroes-list" routerLinkActive="active">Superheroes</a>
-    <a routerLink="/factions-list" routerLinkActive="active">Factions</a>
+    <a routerLink="/superheroes" routerLinkActive="active">Superheroes</a>
+    <a routerLink="/factions" routerLinkActive="active">Factions</a>
   </nav>
   <router-outlet>
   </router-outlet>

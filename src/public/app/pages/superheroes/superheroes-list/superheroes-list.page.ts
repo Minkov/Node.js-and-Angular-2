@@ -1,20 +1,21 @@
-import { Superhero } from './../../../../shared/models/superhero.model';
 import { Component } from '@angular/core';
-import { PageComponent } from '../page.component';
-import { SuperheroesService } from '../../services/superheroes.service';
+
+import { SuperheroesService } from '../../../services/superheroes.service';
+import { PageComponent } from '../../page.component';
+import { SuperheroModel } from '../../../../../shared/models/superhero.model';
 
 @Component({
     moduleId: module.id,
     templateUrl: './superheroes-list.page.html'
 })
 export class SuperheroesListPage implements PageComponent {
-    superheroes: Superhero[] = [];
+    superheroes: SuperheroModel[] = [];
 
     constructor(private superheroesData: SuperheroesService) { }
 
     ngOnInit() {
         this.superheroesData.getAll()
-            .then(superheroes => {
+            .subscribe(superheroes => {
                 this.superheroes = superheroes;
             });
     }

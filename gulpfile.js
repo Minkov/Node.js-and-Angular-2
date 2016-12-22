@@ -41,7 +41,7 @@ gulp.task('watch', ['serve'], () => {
 
 gulp.task('serve', ['build'], function() {
     nodemon({
-        script: 'dist/app.js',
+        script: 'dist/server.js',
         ext: 'js'
     }).on('restart', () => {
         gulp.src('server.js')

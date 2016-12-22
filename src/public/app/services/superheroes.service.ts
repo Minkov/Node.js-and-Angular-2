@@ -1,23 +1,17 @@
-import { ResponseResult } from './../../../shared/models/responseResult';
-import { Superhero } from './../../../shared/models/superhero.model';
+import { Observable } from 'rxjs/Rx';
+import { SuperheroModel } from './../../../shared/models/superhero.model';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/Rx';
 
-import { Http } from '@angular/http';
-
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class SuperheroesService {
     private superheroesUrl = '/api/superheroes';
     constructor(private http: Http) { }
 
-    getAll(): Promise<Superhero[]> {
+    getAll(): Observable<SuperheroModel[]> {
         return this.http.get(this.superheroesUrl)
-            .toPromise()
-            .then(response => {
-                let data = response.json() as ResponseResult<Superhero[]>;
-                return data.result;
-            });
-
+            .map((resp: Response) => resp.json().data);
     }
 };

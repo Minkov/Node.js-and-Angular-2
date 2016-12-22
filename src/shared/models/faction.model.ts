@@ -1,3 +1,3 @@
-export interface Faction {
+export interface FactionModel {
     name: string;
 };

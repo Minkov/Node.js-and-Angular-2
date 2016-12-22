@@ -1,5 +1,5 @@
-import { Faction } from './shared/models/faction.model';
-import { Superhero } from './shared/models/superhero.model';
+import { FactionModel } from './shared/models/faction.model';
+import { SuperheroModel } from './shared/models/superhero.model';
 
 import express = require('express');
 
@@ -16,13 +16,13 @@ app.get('/', (req: any, res: any) => {
     return res.render('index');
 });
 
-let superheroes: Superhero[] = [
+let superheroes: SuperheroModel[] = [
     { name: 'Batman', secretIdentity: 'Bruce Wayne', powers: ['Utility belt', 'Martial arts', 'Intelligence'] },
     { name: 'Dr. Strange', secretIdentity: 'Dr. Stephen Strange', powers: ['Magic', 'Martial arts'] },
     { name: 'Spiderman', secretIdentity: 'Peter Parker', powers: ['Web', 'Agility', 'Super strength'] }
 ];
 
-let factions: Faction[] = [
+let factions: FactionModel[] = [
     { name: 'Avengers' },
     { name: 'Justice League' },
     { name: 'The Bat Family' },
@@ -32,13 +32,13 @@ let factions: Faction[] = [
 
 app.get('/api/superheroes', (req: any, res: any) => {
     res.send({
-        result: superheroes
+        data: superheroes
     });
 });
 
 app.get('/api/factions', (req: any, res: any) => {
     res.send({
-        result: factions
+        data: factions
     });
 });
 
