@@ -14,4 +14,9 @@ export class SuperheroesService {
         return this.http.get(this.superheroesUrl)
             .map((resp: Response) => resp.json().data);
     }
+
+    getByName(name: string): Observable<SuperheroModel> {
+        return this.http.get(`${this.superheroesUrl}/${name}`)
+            .map((resp: Response) => resp.json().data as SuperheroModel);
+    }
 };

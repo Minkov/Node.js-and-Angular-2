@@ -7,13 +7,10 @@ import { SuperheroDetailsPage } from './superhero-details/superhero-details.page
 import { SuperheroesService } from './../../services/superheroes.service';
 import { RouterModule, Routes } from '@angular/router';
 
-let routes: Routes = [{
-    path: 'superheroes',
-    component: SuperheroesListPage,
-    children: [
-        { path: ':name', component: SuperheroDetailsPage }
-    ]
-}];
+let routes: Routes = [
+    { path: 'superheroes', component: SuperheroesListPage },
+    { path: 'superheroes/:name', component: SuperheroDetailsPage }
+];
 
 @NgModule({
     imports: [

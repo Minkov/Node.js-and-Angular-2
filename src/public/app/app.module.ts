@@ -15,13 +15,12 @@ let appRoutes: Routes = [];
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
-    PagesModule
-  ],
+    PagesModule],
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   bootstrap: [
     AppComponent
-  ],
+  ]
 })
 export class AppModule { }
