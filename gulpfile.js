@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 
 const typescript = require('gulp-typescript'),
+    sourcemaps = require('gulp-sourcemaps'),
     watch = require('gulp-watch'),
-    clean = require('gulp-clean'),
     notify = require('gulp-notify');
 
 const nodemon = require('nodemon'),
@@ -13,14 +13,18 @@ const tsConfig = require('./tsconfig.json');
 
 gulp.task('clean', () => {
     return del('dist/**/*');
-    // return gulp.src('dist/**/*.*')
-    //     .pipe(clean({ force: true }));
 });
 
 gulp.task('compile', () => {
+
     return gulp.src('src/**/*.ts')
         .pipe(typescript(tsConfig.compilerOptions))
+        .pipe(sourcemaps.init())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist'));
+    // return gulp.src('src/**/*.ts')
+    //     .pipe(typescript(tsConfig.compilerOptions))
+    //     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('copy', () => {

@@ -16,7 +16,6 @@ let factions: FactionModel[] = [
     { name: 'Guardians of the Galaxy' }
 ];
 
-
 export class DataService {
     findUserByCredentials(username: string, password: string): Promise<UserModel> {
         return Promise.resolve(null);

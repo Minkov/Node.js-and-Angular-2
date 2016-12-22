@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
     templateUrl: './factions-list.page.html'
 })
 export class FactionsListPage implements PageComponent {
-
     factions: FactionModel[] = [];
     constructor(private factionsService: FactionsService) { }
 
